@@ -3,24 +3,6 @@
 import streamlit as st
 import requests
 
-# st.title("My Personal RAG Assistant")
-
-# question = st.text_input("Ask a question about my CV")
-
-# if st.button("Ask"):
-#     res = requests.post(
-#         "http://127.0.0.1:8000/query",
-#         json={"question": question}
-#     )
-#     st.write(res.json()["answer"])
-
-
-# streamlit run app.py
-#dont run it in command prompt
-#streamlit run c:/Users/USER/Desktop/RAG/streamlit/str_app.py
-
-import streamlit as st
-import requests
 
 # Page config
 st.set_page_config(page_title="Personal RAG Assistant", layout="centered")
@@ -59,3 +41,5 @@ if st.button("Ask"):
             st.write(data["answer"])
         else:
             st.error("Something went wrong. Please try again.")
+
+#streamlit run streamlit_app.py
