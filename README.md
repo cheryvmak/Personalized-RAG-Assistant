@@ -1,4 +1,4 @@
-# 🧠 Personalized RAG System — CV-Driven Knowledge Assistant  
+# 🧠 Personalized CV RAG Assistant  
 
 > **AI Engineering Portfolio Project**
 
