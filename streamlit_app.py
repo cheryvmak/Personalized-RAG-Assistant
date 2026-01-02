@@ -14,7 +14,7 @@ st.write("Ask questions about my CV and personal documents.")
 st.markdown(
     """
     **Assistant Persona:**  
-    I answer questions strictly based on my personal documents  
+    I answer questions strictly based on Okemakinde Sherif's personal documents  
     (CV, experience, education, projects).
     """
 )
