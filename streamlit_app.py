@@ -1,6 +1,6 @@
 
 
-# import streamlit as st
+import streamlit as st
 # import requests
 
 
@@ -43,7 +43,7 @@
 #             st.error("Something went wrong. Please try again.")
 
 # #streamlit run streamlit_app.py
-import streamlit as st
+
 from rag_query import run_rag
 
 # Page config
