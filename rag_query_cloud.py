@@ -5,6 +5,9 @@ from langchain_chroma import Chroma
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_core.runnables import RunnableParallel, RunnablePassthrough
 from langchain_core.output_parsers import StrOutputParser
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # 🔐 Load API key (local + cloud safe)
 OPENAI_API_KEY = (
