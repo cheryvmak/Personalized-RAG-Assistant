@@ -1,2 +1,11 @@
 .env
 a_env/
+
+.env
+secrets.toml
+*.env
+__pycache__/
+*.pyc
+.streamlit/secrets.toml
+a_env/
+__pycache__\rag_query.cpython-313.pyc
