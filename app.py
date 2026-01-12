@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from pydantic import BaseModel
-from rag_query import run_rag
+from rag_query_cloud import run_rag
 
 app = FastAPI()
 

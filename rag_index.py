@@ -36,7 +36,7 @@ Chroma.from_documents(
     persist_directory="chroma_db1"
 )
 
-print("✅ Vector database created successfully")
+print("Vector database created successfully")
 
 # Run this ONCE:
 # python rag_index.py

@@ -9,7 +9,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-# 🔐 Load API key (local + cloud safe)
+# Load API key (local + cloud safe)
 OPENAI_API_KEY = (
     st.secrets.get("OPENAI_API_KEY")
     or os.getenv("OPENAI_API_KEY")
