@@ -121,6 +121,9 @@ Week_20/Day_5/
 | Streamlit | Frontend UI |
 | PyPDFLoader | Document parsing |
 
+## Project Demo
+Demo links: https://cheryvmak-personalized-rag-assistant-streamlit-app-o9vmxv.streamlit.app/
+
 ---
 
 ## ▶️ Running the Project
