@@ -73,4 +73,5 @@ if st.button("Ask"):
             result = run_rag(question)
 
         st.subheader("Answer")
-        st.write(result["answer"])
+        st.write(result)
+
