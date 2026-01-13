@@ -11,8 +11,7 @@ api_key = os.getenv("OPENAI_API_KEY")
 
 # Load vector store
 embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small",
-    openai_api_key=api_key
+    model="text-embedding-3-small"
 )
 
 vectorstore = Chroma(
@@ -26,7 +25,6 @@ retriever = vectorstore.as_retriever(search_kwargs={"k": 3})
 llm = ChatOpenAI(
     model="gpt-3.5-turbo",
     temperature=0,
-    openai_api_key=api_key
 )
 
 # Prompt

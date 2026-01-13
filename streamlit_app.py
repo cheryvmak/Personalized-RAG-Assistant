@@ -44,7 +44,7 @@ import streamlit as st
 
 # #streamlit run streamlit_app.py
 
-from rag_query import run_rag
+from ragj_query import run_rag
 
 # Page config
 st.set_page_config(page_title="Personal RAG Assistant", layout="centered")
