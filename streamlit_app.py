@@ -44,34 +44,67 @@ import streamlit as st
 
 # #streamlit run streamlit_app.py
 
+
+
+import streamlit as st
 from rag_query import run_rag
 
-# Page config
-st.set_page_config(page_title="Personal RAG Assistant", layout="centered")
 
-# Title & description
-st.title("My Personal RAG Assistant")
-st.write("Ask questions about my CV and personal documents.")
 
-st.markdown(
-    """
-    **Assistant Persona:**  
-    I answer questions strictly based on Okemakinde Sherif's personal documents  
-    (CV, experience, education, projects).
-    """
-)
+# SESSION STATE (SAFE INIT)
 
-# Input box
-question = st.text_input("Ask a question")
+st.session_state.setdefault("chat_history", [])
 
-# Button
-if st.button("Ask"):
-    if question.strip() == "":
-        st.warning("Please enter a question.")
-    else:
-        with st.spinner("Thinking..."):
-            result = run_rag(question)
 
-        st.subheader("Answer")
-        st.write(result)
+# PAGE
 
+st.title("Personal RAG Assistant")
+
+
+
+# FORMAT HISTORY
+
+def get_chat_history():
+    history_text = ""
+    for msg in st.session_state.chat_history:
+        history_text += f"{msg['role']}: {msg['content']}\n"
+    return history_text
+
+
+
+# DISPLAY CHAT
+
+for msg in st.session_state.chat_history:
+    with st.chat_message(msg["role"]):
+        st.write(msg["content"])
+
+
+
+# INPUT
+question = st.chat_input("Ask a question about your documents...")
+
+if question:
+
+    # store user message
+    st.session_state.chat_history.append({
+        "role": "user",
+        "content": question
+    })
+
+    with st.chat_message("user"):
+        st.write(question)
+
+    # build history
+    history = get_chat_history()
+
+    # call backend RAG
+    response = run_rag(question, history)
+
+    # store assistant message
+    st.session_state.chat_history.append({
+        "role": "assistant",
+        "content": response
+    })
+
+    with st.chat_message("assistant"):
+        st.write(response)

@@ -4,6 +4,7 @@ from langchain_openai import OpenAIEmbeddings
 from langchain_community.document_loaders import DirectoryLoader, PyPDFLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_chroma import Chroma
+from langchain_huggingface import HuggingFaceEmbeddings
 
 load_dotenv()
 api_key = os.getenv("OPENAI_API_KEY")
@@ -18,15 +19,14 @@ docs = loader.load()
 
 # Split documents
 splitter = RecursiveCharacterTextSplitter(
-    chunk_size=800,
+    chunk_size=500,
     chunk_overlap=100
 )
 chunks = splitter.split_documents(docs)
 
 # Create embeddings
-embeddings = OpenAIEmbeddings(
-    model="text-embedding-3-small",
-    openai_api_key=api_key
+embeddings =  HuggingFaceEmbeddings(
+    model_name="sentence-transformers/all-MiniLM-L6-v2"
 )
 
 # Create vector store
