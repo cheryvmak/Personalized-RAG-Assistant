@@ -44,7 +44,8 @@ import streamlit as st
 
 
 
-
+import warnings
+warnings.filterwarnings("ignore")
 
 import streamlit as st
 from rag_query import run_rag
