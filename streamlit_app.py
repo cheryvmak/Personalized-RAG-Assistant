@@ -42,7 +42,7 @@ import streamlit as st
 #         else:
 #             st.error("Something went wrong. Please try again.")
 
-# #streamlit run streamlit_app.py
+
 
 
 
@@ -50,19 +50,11 @@ import streamlit as st
 from rag_query import run_rag
 
 
-
-# SESSION STATE (SAFE INIT)
-
 st.session_state.setdefault("chat_history", [])
-
-
-# PAGE
 
 st.title("Personal RAG Assistant")
 
 
-
-# FORMAT HISTORY
 
 def get_chat_history():
     history_text = ""
@@ -71,21 +63,15 @@ def get_chat_history():
     return history_text
 
 
-
-# DISPLAY CHAT
-
 for msg in st.session_state.chat_history:
     with st.chat_message(msg["role"]):
         st.write(msg["content"])
 
 
-
-# INPUT
 question = st.chat_input("Ask a question about your documents...")
 
 if question:
 
-    # store user message
     st.session_state.chat_history.append({
         "role": "user",
         "content": question
@@ -94,13 +80,11 @@ if question:
     with st.chat_message("user"):
         st.write(question)
 
-    # build history
+
     history = get_chat_history()
 
-    # call backend RAG
     response = run_rag(question, history)
 
-    # store assistant message
     st.session_state.chat_history.append({
         "role": "assistant",
         "content": response
@@ -108,3 +92,6 @@ if question:
 
     with st.chat_message("assistant"):
         st.write(response)
+
+
+# #streamlit run streamlit_app.py
